@@ -1,4 +1,12 @@
 [[package]]
+name = "alabaster"
+version = "0.7.16"
+description = "A light, configurable Sphinx theme"
+category = "dev"
+optional = false
+python-versions = ">=3.9"
+
+[[package]]
 name = "anyio"
 version = "4.4.0"
 description = "High level compatibility layer for multiple asynchronous event loop implementations"
@@ -72,6 +80,17 @@ types-python-dateutil = ">=2.8.10"
 [package.extras]
 doc = ["doc8", "sphinx (>=7.0.0)", "sphinx-autobuild", "sphinx-autodoc-typehints", "sphinx_rtd_theme (>=1.3.0)"]
 test = ["dateparser (>=1.0.0,<2.0.0)", "pre-commit", "pytest", "pytest-cov", "pytest-mock", "pytz (==2021.1)", "simplejson (>=3.0.0,<4.0.0)"]
+
+[[package]]
+name = "astroid"
+version = "3.3.2"
+description = "An abstract syntax tree for Python with inference support."
+category = "dev"
+optional = false
+python-versions = ">=3.9.0"
+
+[package.dependencies]
+typing-extensions = {version = ">=4.0.0", markers = "python_version < \"3.11\""}
 
 [[package]]
 name = "asttokens"
@@ -187,6 +206,17 @@ optional = false
 python-versions = ">=3.7.0"
 
 [[package]]
+name = "click"
+version = "8.1.7"
+description = "Composable command line interface toolkit"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+colorama = {version = "*", markers = "platform_system == \"Windows\""}
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 description = "Cross-platform colored terminal text."
@@ -277,6 +307,14 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
+name = "docutils"
+version = "0.20.1"
+description = "Docutils -- Python Documentation Utilities"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "exceptiongroup"
 version = "1.2.2"
 description = "Backport of PEP 654 (exception groups)"
@@ -340,6 +378,18 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "greenlet"
+version = "3.0.3"
+description = "Lightweight in-process concurrent programming"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+docs = ["sphinx", "furo"]
+test = ["objgraph", "psutil"]
+
+[[package]]
 name = "h11"
 version = "0.14.0"
 description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
@@ -393,6 +443,14 @@ description = "Internationalized Domain Names in Applications (IDNA)"
 category = "dev"
 optional = false
 python-versions = ">=3.5"
+
+[[package]]
+name = "imagesize"
+version = "1.4.1"
+description = "Getting image size from png/jpeg/jpeg2000/gif file"
+category = "dev"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
 name = "importlib-metadata"
@@ -626,6 +684,30 @@ notebook = "*"
 qtconsole = "*"
 
 [[package]]
+name = "jupyter-cache"
+version = "1.0.0"
+description = "A defined interface for working with a cache of jupyter notebooks."
+category = "dev"
+optional = false
+python-versions = ">=3.9"
+
+[package.dependencies]
+attrs = "*"
+click = "*"
+importlib-metadata = "*"
+nbclient = ">=0.2"
+nbformat = "*"
+pyyaml = "*"
+sqlalchemy = ">=1.3.12,<3"
+tabulate = "*"
+
+[package.extras]
+cli = ["click-log"]
+code_style = ["pre-commit (>=2.12)"]
+rtd = ["nbdime", "ipykernel", "jupytext", "myst-nb", "sphinx-book-theme", "sphinx-copybutton"]
+testing = ["nbdime", "coverage", "ipykernel", "jupytext", "matplotlib", "nbformat (>=5.1)", "numpy", "pandas", "pytest (>=6,<8)", "pytest-cov", "pytest-regressions", "sympy"]
+
+[[package]]
 name = "jupyter-client"
 version = "8.6.2"
 description = "Jupyter protocol implementation and client libraries"
@@ -845,6 +927,27 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "markdown-it-py"
+version = "3.0.0"
+description = "Python port of markdown-it. Markdown parsing, done right!"
+category = "dev"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+mdurl = ">=0.1,<1.0"
+
+[package.extras]
+benchmarking = ["psutil", "pytest", "pytest-benchmark"]
+code_style = ["pre-commit (>=3.0,<4.0)"]
+compare = ["commonmark (>=0.9,<1.0)", "markdown (>=3.4,<4.0)", "mistletoe (>=1.0,<2.0)", "mistune (>=2.0,<3.0)", "panflute (>=2.3,<3.0)"]
+linkify = ["linkify-it-py (>=1,<3)"]
+plugins = ["mdit-py-plugins"]
+profiling = ["gprof2dot"]
+rtd = ["mdit-py-plugins", "myst-parser", "pyyaml", "sphinx", "sphinx-copybutton", "sphinx-design", "sphinx-book-theme", "jupyter-sphinx"]
+testing = ["coverage", "pytest", "pytest-cov", "pytest-regressions"]
+
+[[package]]
 name = "markupsafe"
 version = "2.1.5"
 description = "Safely add untrusted strings to HTML/XML markup."
@@ -887,12 +990,84 @@ python-versions = ">=3.8"
 traitlets = "*"
 
 [[package]]
+name = "mdit-py-plugins"
+version = "0.4.1"
+description = "Collection of plugins for markdown-it-py"
+category = "dev"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+markdown-it-py = ">=1.0.0,<4.0.0"
+
+[package.extras]
+code-style = ["pre-commit"]
+rtd = ["myst-parser", "sphinx-book-theme"]
+testing = ["coverage", "pytest", "pytest-cov", "pytest-regressions"]
+
+[[package]]
+name = "mdurl"
+version = "0.1.2"
+description = "Markdown URL utilities"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "mistune"
 version = "3.0.2"
 description = "A sane and fast Markdown parser with useful plugins and renderers"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
+
+[[package]]
+name = "myst-nb"
+version = "1.1.1"
+description = "A Jupyter Notebook Sphinx reader built on top of the MyST markdown parser."
+category = "dev"
+optional = false
+python-versions = ">=3.9"
+
+[package.dependencies]
+importlib_metadata = "*"
+ipykernel = "*"
+ipython = "*"
+jupyter-cache = ">=0.5"
+myst-parser = ">=1.0.0"
+nbclient = "*"
+nbformat = ">=5.0"
+pyyaml = "*"
+sphinx = ">=5"
+typing-extensions = "*"
+
+[package.extras]
+code-style = ["pre-commit"]
+rtd = ["alabaster", "altair", "bokeh", "coconut (>=1.4.3,<3.1.0)", "ipykernel (>=5.5,<7.0)", "ipywidgets", "jupytext (>=1.11.2,<1.16.0)", "matplotlib", "numpy", "pandas", "plotly", "sphinx-book-theme (>=0.3)", "sphinx-copybutton", "sphinx-design (>=0.4.0,<0.5.0)", "sphinxcontrib-bibtex", "sympy"]
+testing = ["coverage (>=6.4,<8.0)", "beautifulsoup4", "ipykernel (>=5.5,<7.0)", "ipython (!=8.1.0,<8.17)", "ipywidgets (>=8)", "jupytext (>=1.11.2,<1.16.0)", "matplotlib (>=3.7.0,<3.8.0)", "nbdime", "numpy", "pandas (>=1.5.0,<1.6.0)", "pyarrow", "pytest (>=7.1,<8.0)", "pytest-cov (>=3,<5)", "pytest-regressions", "pytest-param-files (>=0.3.3,<0.4.0)", "sympy (>=1.10.1)"]
+
+[[package]]
+name = "myst-parser"
+version = "3.0.1"
+description = "An extended [CommonMark](https://spec.commonmark.org/) compliant parser,"
+category = "dev"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+docutils = ">=0.18,<0.22"
+jinja2 = "*"
+markdown-it-py = ">=3.0,<4.0"
+mdit-py-plugins = ">=0.4,<1.0"
+pyyaml = "*"
+sphinx = ">=6,<8"
+
+[package.extras]
+code-style = ["pre-commit (>=3.0,<4.0)"]
+linkify = ["linkify-it-py (>=2.0,<3.0)"]
+rtd = ["sphinx (>=7)", "ipython", "sphinx-book-theme (>=1.1,<2.0)", "sphinx-design", "sphinx-copybutton", "sphinxext-rediraffe (>=0.2.7,<0.3.0)", "sphinxext-opengraph (>=0.9.0,<0.10.0)", "sphinx-pyscript", "sphinx-tippy (>=0.4.3)", "sphinx-autodoc2 (>=0.5.0,<0.6.0)", "sphinx-togglebutton"]
+testing = ["beautifulsoup4", "coverage", "defusedxml", "pytest (>=8,<9)", "pytest-cov", "pytest-regressions", "pytest-param-files (>=0.6.0,<0.7.0)", "sphinx-pytest"]
+testing-docutils = ["pygments", "pytest (>=8,<9)", "pytest-param-files (>=0.6.0,<0.7.0)"]
 
 [[package]]
 name = "nbclient"
@@ -1397,12 +1572,213 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "snowballstemmer"
+version = "2.2.0"
+description = "This package provides 29 stemmers for 28 languages generated from Snowball algorithms."
+category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "soupsieve"
 version = "2.6"
 description = "A modern CSS selector implementation for Beautiful Soup."
 category = "dev"
 optional = false
 python-versions = ">=3.8"
+
+[[package]]
+name = "sphinx"
+version = "7.4.7"
+description = "Python documentation generator"
+category = "dev"
+optional = false
+python-versions = ">=3.9"
+
+[package.dependencies]
+alabaster = ">=0.7.14,<0.8.0"
+babel = ">=2.13"
+colorama = {version = ">=0.4.6", markers = "sys_platform == \"win32\""}
+docutils = ">=0.20,<0.22"
+imagesize = ">=1.3"
+importlib-metadata = {version = ">=6.0", markers = "python_version < \"3.10\""}
+Jinja2 = ">=3.1"
+packaging = ">=23.0"
+Pygments = ">=2.17"
+requests = ">=2.30.0"
+snowballstemmer = ">=2.2"
+sphinxcontrib-applehelp = "*"
+sphinxcontrib-devhelp = "*"
+sphinxcontrib-htmlhelp = ">=2.0.0"
+sphinxcontrib-jsmath = "*"
+sphinxcontrib-qthelp = "*"
+sphinxcontrib-serializinghtml = ">=1.1.9"
+tomli = {version = ">=2", markers = "python_version < \"3.11\""}
+
+[package.extras]
+docs = ["sphinxcontrib-websupport"]
+lint = ["flake8 (>=6.0)", "ruff (==0.5.2)", "mypy (==1.10.1)", "sphinx-lint (>=0.9)", "types-docutils (==0.21.0.20240711)", "types-requests (>=2.30.0)", "importlib-metadata (>=6.0)", "tomli (>=2)", "pytest (>=6.0)"]
+test = ["pytest (>=8.0)", "defusedxml (>=0.7.1)", "cython (>=3.0)", "setuptools (>=70.0)", "typing_extensions (>=4.9)"]
+
+[[package]]
+name = "sphinx-autoapi"
+version = "3.2.1"
+description = "Sphinx API documentation generator"
+category = "dev"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+astroid = [
+    {version = ">=2.7", markers = "python_version < \"3.12\""},
+    {version = ">=3.0.0a1", markers = "python_version >= \"3.12\""},
+]
+Jinja2 = "*"
+PyYAML = "*"
+sphinx = ">=6.1.0"
+
+[package.extras]
+docs = ["furo", "sphinx", "sphinx-design"]
+
+[[package]]
+name = "sphinx-rtd-theme"
+version = "2.0.0"
+description = "Read the Docs theme for Sphinx"
+category = "dev"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+docutils = "<0.21"
+sphinx = ">=5,<8"
+sphinxcontrib-jquery = ">=4,<5"
+
+[package.extras]
+dev = ["transifex-client", "sphinxcontrib-httpdomain", "bump2version", "wheel"]
+
+[[package]]
+name = "sphinxcontrib-applehelp"
+version = "2.0.0"
+description = "sphinxcontrib-applehelp is a Sphinx extension which outputs Apple help books"
+category = "dev"
+optional = false
+python-versions = ">=3.9"
+
+[package.extras]
+lint = ["ruff (==0.5.5)", "mypy", "types-docutils"]
+standalone = ["Sphinx (>=5)"]
+test = ["pytest"]
+
+[[package]]
+name = "sphinxcontrib-devhelp"
+version = "2.0.0"
+description = "sphinxcontrib-devhelp is a sphinx extension which outputs Devhelp documents"
+category = "dev"
+optional = false
+python-versions = ">=3.9"
+
+[package.extras]
+lint = ["ruff (==0.5.5)", "mypy", "types-docutils"]
+standalone = ["Sphinx (>=5)"]
+test = ["pytest"]
+
+[[package]]
+name = "sphinxcontrib-htmlhelp"
+version = "2.1.0"
+description = "sphinxcontrib-htmlhelp is a sphinx extension which renders HTML help files"
+category = "dev"
+optional = false
+python-versions = ">=3.9"
+
+[package.extras]
+lint = ["ruff (==0.5.5)", "mypy", "types-docutils"]
+standalone = ["Sphinx (>=5)"]
+test = ["pytest", "html5lib"]
+
+[[package]]
+name = "sphinxcontrib-jquery"
+version = "4.1"
+description = "Extension to include jQuery on newer Sphinx releases"
+category = "dev"
+optional = false
+python-versions = ">=2.7"
+
+[package.dependencies]
+Sphinx = ">=1.8"
+
+[[package]]
+name = "sphinxcontrib-jsmath"
+version = "1.0.1"
+description = "A sphinx extension which renders display math in HTML via JavaScript"
+category = "dev"
+optional = false
+python-versions = ">=3.5"
+
+[package.extras]
+test = ["pytest", "flake8", "mypy"]
+
+[[package]]
+name = "sphinxcontrib-qthelp"
+version = "2.0.0"
+description = "sphinxcontrib-qthelp is a sphinx extension which outputs QtHelp documents"
+category = "dev"
+optional = false
+python-versions = ">=3.9"
+
+[package.extras]
+lint = ["ruff (==0.5.5)", "mypy", "types-docutils"]
+standalone = ["Sphinx (>=5)"]
+test = ["pytest", "defusedxml (>=0.7.1)"]
+
+[[package]]
+name = "sphinxcontrib-serializinghtml"
+version = "2.0.0"
+description = "sphinxcontrib-serializinghtml is a sphinx extension which outputs \"serialized\" HTML files (json and pickle)"
+category = "dev"
+optional = false
+python-versions = ">=3.9"
+
+[package.extras]
+lint = ["ruff (==0.5.5)", "mypy", "types-docutils"]
+standalone = ["Sphinx (>=5)"]
+test = ["pytest"]
+
+[[package]]
+name = "sqlalchemy"
+version = "2.0.32"
+description = "Database Abstraction Library"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+greenlet = {version = "!=0.4.17", markers = "python_version < \"3.13\" and (platform_machine == \"aarch64\" or platform_machine == \"ppc64le\" or platform_machine == \"x86_64\" or platform_machine == \"amd64\" or platform_machine == \"AMD64\" or platform_machine == \"win32\" or platform_machine == \"WIN32\")"}
+typing-extensions = ">=4.6.0"
+
+[package.extras]
+asyncio = ["greenlet (!=0.4.17)"]
+mypy = ["mypy (>=0.910)"]
+mssql = ["pyodbc"]
+mssql-pymssql = ["pymssql"]
+mssql-pyodbc = ["pyodbc"]
+mysql = ["mysqlclient (>=1.4.0)"]
+mysql-connector = ["mysql-connector-python"]
+mariadb-connector = ["mariadb (>=1.0.1,!=1.1.2,!=1.1.5)"]
+oracle = ["cx_oracle (>=8)"]
+oracle-oracledb = ["oracledb (>=1.0.1)"]
+postgresql = ["psycopg2 (>=2.7)"]
+postgresql-pg8000 = ["pg8000 (>=1.29.1)"]
+postgresql-asyncpg = ["greenlet (!=0.4.17)", "asyncpg"]
+postgresql-psycopg2binary = ["psycopg2-binary"]
+postgresql-psycopg2cffi = ["psycopg2cffi"]
+postgresql-psycopg = ["psycopg (>=3.0.7)"]
+postgresql-psycopgbinary = ["psycopg[binary] (>=3.0.7)"]
+pymysql = ["pymysql"]
+aiomysql = ["greenlet (!=0.4.17)", "aiomysql (>=0.2.0)"]
+aioodbc = ["greenlet (!=0.4.17)", "aioodbc"]
+asyncmy = ["greenlet (!=0.4.17)", "asyncmy (>=0.2.3,!=0.2.4,!=0.2.6)"]
+aiosqlite = ["greenlet (!=0.4.17)", "aiosqlite", "typing_extensions (!=3.10.0.1)"]
+sqlcipher = ["sqlcipher3-binary"]
 
 [[package]]
 name = "stack-data"
@@ -1419,6 +1795,17 @@ pure-eval = "*"
 
 [package.extras]
 tests = ["pytest", "typeguard", "pygments", "littleutils", "cython"]
+
+[[package]]
+name = "tabulate"
+version = "0.9.0"
+description = "Pretty-print tabular data"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+widechars = ["wcwidth"]
 
 [[package]]
 name = "terminado"
@@ -1586,14 +1973,16 @@ test = ["pytest (>=6,<8.1.0 || >=8.2.0)", "pytest-checkdocs (>=2.4)", "pytest-co
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.9"
-content-hash = "7ea3dfa4ff2f07dfdb9a7c45b900f129c76a54decfcfc13c71ce8bcada5d9854"
+content-hash = "35ef01deb68a5164b3d2f23259e6dd973662c61d24499f3efe95aa7f8d98dfdb"
 
 [metadata.files]
+alabaster = []
 anyio = []
 appnope = []
 argon2-cffi = []
 argon2-cffi-bindings = []
 arrow = []
+astroid = []
 asttokens = []
 async-lru = []
 attrs = []
@@ -1603,6 +1992,7 @@ bleach = []
 certifi = []
 cffi = []
 charset-normalizer = []
+click = []
 colorama = []
 comm = []
 contourpy = []
@@ -1611,15 +2001,18 @@ cycler = []
 debugpy = []
 decorator = []
 defusedxml = []
+docutils = []
 exceptiongroup = []
 executing = []
 fastjsonschema = []
 fonttools = []
 fqdn = []
+greenlet = []
 h11 = []
 httpcore = []
 httpx = []
 idna = []
+imagesize = []
 importlib-metadata = []
 importlib-resources = []
 iniconfig = []
@@ -1634,6 +2027,7 @@ jsonpointer = []
 jsonschema = []
 jsonschema-specifications = []
 jupyter = []
+jupyter-cache = []
 jupyter-client = []
 jupyter-console = []
 jupyter-core = []
@@ -1646,10 +2040,15 @@ jupyterlab-pygments = []
 jupyterlab-server = []
 jupyterlab-widgets = []
 kiwisolver = []
+markdown-it-py = []
 markupsafe = []
 matplotlib = []
 matplotlib-inline = []
+mdit-py-plugins = []
+mdurl = []
 mistune = []
+myst-nb = []
+myst-parser = []
 nbclient = []
 nbconvert = []
 nbformat = []
@@ -1691,8 +2090,21 @@ rpds-py = []
 send2trash = []
 six = []
 sniffio = []
+snowballstemmer = []
 soupsieve = []
+sphinx = []
+sphinx-autoapi = []
+sphinx-rtd-theme = []
+sphinxcontrib-applehelp = []
+sphinxcontrib-devhelp = []
+sphinxcontrib-htmlhelp = []
+sphinxcontrib-jquery = []
+sphinxcontrib-jsmath = []
+sphinxcontrib-qthelp = []
+sphinxcontrib-serializinghtml = []
+sqlalchemy = []
 stack-data = []
+tabulate = []
 terminado = []
 tinycss2 = []
 tomli = []
