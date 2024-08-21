@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pycounts_gaurav"
-version = "0.1.1"
+version = "0.1.0"
 description = "counts word counts in a text file"
 authors = ["Gaurav Parajuli"]
 license = "MIT"
