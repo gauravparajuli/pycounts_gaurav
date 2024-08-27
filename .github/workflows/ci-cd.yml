@@ -27,7 +27,7 @@ jobs:
       run: poetry run pytest tests/ --cov=pycounts_gaurav --cov-report=xml
     
     - name: use codecov to track coverage
-      run: codecov/codecov-action@v2
+      uses: codecov/codecov-action@v2
       with:
         files: ./coverage.xml # coverage report
 
