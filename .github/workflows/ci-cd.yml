@@ -1,0 +1,24 @@
+name: ci-cd
+
+on: [push, pull-request]
+
+jobs:
+  ci:
+    # setup operating system
+    runs-on: ubuntu-latest
+
+    # define job steps
+    steps:
+    - name: setup python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - name: check-out repository
+      uses: actions/checkout@v2
+
+    - name: install poetry
+      uses: snok/install-poetry@v1
+
+    - name: install packages
+      run: poetry install
