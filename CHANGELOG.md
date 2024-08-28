@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## v0.4.0 (2024-08-28)
+
+### Build
+
+* build: fix the typo in ci-cd.yml ([`1547064`](https://github.com/gauravparajuli/pycounts_gaurav/commit/15470641ab05e5d999a93bbf8400930aeb7317c5))
+
+* build: fix the type in ci-cd.yml ([`375e2d1`](https://github.com/gauravparajuli/pycounts_gaurav/commit/375e2d12fe99a8452c26971e8b2e48049af8f001))
+
+* build: implmented CI workflow ([`6fa5ab1`](https://github.com/gauravparajuli/pycounts_gaurav/commit/6fa5ab1eb50a4c5d5f69a4b95d5a6a9cef73d869))
+
+* build: setup a basic github actions for implementing cicd ([`a4d6cae`](https://github.com/gauravparajuli/pycounts_gaurav/commit/a4d6cae0d65e402cd933fa8f05876aee2c88d6a1))
+
+### Feature
+
+* feat: implemented CI/CD workflow ([`0a40280`](https://github.com/gauravparajuli/pycounts_gaurav/commit/0a40280f941113ad488d08a0f49405780fcd609d))
+
+### Fix
+
+* fix: fixed typo in ci-cd.yaml ([`8ff311e`](https://github.com/gauravparajuli/pycounts_gaurav/commit/8ff311e99ea491c2ead389d61ae96f21e974a6fb))
+
 ## v0.3.0 (2024-08-27)
 
 ### Feature
