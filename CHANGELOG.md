@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## v0.5.0 (2024-08-28)
+
+### Feature
+
+* feat: make a minor release ([`2fec0bb`](https://github.com/gauravparajuli/pycounts_gaurav/commit/2fec0bb39e4d0956f19ce4c39096e38661553c17))
+
+### Unknown
+
+* fixed the version number and fixed the version issue ([`dc46b04`](https://github.com/gauravparajuli/pycounts_gaurav/commit/dc46b0428fef6ce8368068114941ab26449d16fe))
+
 ## v0.4.2 (2024-08-28)
 
 ### Fix
