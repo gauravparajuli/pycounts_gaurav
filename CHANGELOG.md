@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.4.2 (2024-08-28)
+
+### Fix
+
+* fix: 2nd attempt to fix the cd error ([`fb9dfd9`](https://github.com/gauravparajuli/pycounts_gaurav/commit/fb9dfd9e1b001795f3e7a360d7ce26763dbf1e6a))
+
 ## v0.4.1 (2024-08-28)
 
 ### Fix
