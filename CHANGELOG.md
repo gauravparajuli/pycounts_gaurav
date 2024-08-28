@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.4.1 (2024-08-28)
+
+### Fix
+
+* fix: trying to fix the cd error ([`1aaf0e9`](https://github.com/gauravparajuli/pycounts_gaurav/commit/1aaf0e90ee4e448b41d67dcf286bb6e76a25b842))
+
 ## v0.4.0 (2024-08-28)
 
 ### Build
