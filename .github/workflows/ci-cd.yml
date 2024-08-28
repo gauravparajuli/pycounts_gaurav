@@ -34,5 +34,65 @@ jobs:
     - name: build documentation
       run: poetry run make html --directory docs/
 
+  cd:
+    permissions:
+      id-token: write
+      contents: write
+
+    # only run this job if "ci" job passes
+    needs: ci
+
+    # only run this if new work is pushed to the main branch
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    # setup the operating system
+    runs-on: ubuntu-latest
+
+    # define the job steps
+    steps:
+    - name: setup python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - name: check-out git repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 # else psr can only access last commit in the repo
+    
+    - name: uses python semantic release to prepare release
+      id: release
+      uses: python-semantic-release/python-semantic-release@v8.3.0
+      with:
+        github_token: $ {{ secrets.GITHUB_TOKEN }}
+
+    - name: publish to TestPyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      if: steps.release.outputs.released == 'true'
+      with: 
+        repository-url: https://test.pypi.org/legacy/
+        password: $${{ secrets.TEST_PYPI_API_TOKEN }}
+
+    - name: Test install from TestPyPI
+      run: |
+          pip install \
+          --index-url https://test.pypi.org/simple \
+          --extra-index-url https://pypi.org/simple \
+          pycounts_gaurav
+
+    - name: publish to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      if: steps.release.outputs.released == 'true'
+      with:
+        password: ${{ secrets.PYPI_API_TOKEN }}
+
+    - name: publish package distributions to GitHub Releases
+      uses: python-semantic-release/upload-to-gh-release@main
+      if: steps.release.outputs.released == 'true'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+
+
     
 
